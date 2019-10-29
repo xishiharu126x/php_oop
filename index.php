@@ -20,7 +20,6 @@
             </div>
         </nav>
     </header>
-    <main>
     <main class="container py-5">
         <section>
             <form class="form-row justify-content-center" action="create.php" method="POST">
@@ -32,10 +31,42 @@
                 </div>
             </form>
         </section>
-        <section>
-
+        <section class="mt-5">
+          <table class="table table-hover">
+              <thead>
+                <tr class="bg-primary text-light">
+                    <th class=>TODO</th>
+                    <th>DUE DATE</th>
+                    <th>STATUS</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>create new website</td>
+                    <td>2019/08/21</td>
+                    <td>NOT YET</td>
+                    <td>
+                        <a class="text-success" href="edit.php">EDIT</a>
+                    </td>
+                    <td>
+                        <a class="text-danger" href="delete.php">DELETE</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>go to club</td>
+                    <td>2019/10/21</td>
+                    <td>DONE</td>
+                    <td>
+                        <a class="text-success" href="edit.php">EDIT</a>
+                    </td>
+                    <td>
+                        <a class="text-danger" href="delete.php">DELETE</a>
+                    </td>
+                </tr>
+              </thead>
+              <tbody></tbody>
+          </table>  
         </section>
-    </main>
     </main>
 </body>
 </html>
