@@ -10,6 +10,19 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  
+<header class="px-5 bg-primary">
+        <nav class="navbar navbar-dark">
+            <a href="index.php" class="navbar-brand">TODO APP</a>
+            <div class="justify-content-end">
+                <span class="text-light">
+                    SeedKun
+                </span>
+            </div>
+        </nav>
+    </header>
+    <main>
+    </main>
+    
+    <script src="assets/js/app.js"></script>
 </body>
 </html>
