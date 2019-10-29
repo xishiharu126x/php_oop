@@ -1,5 +1,14 @@
 <?php
     require_once('Models/Todo.php');
+
+    // Todoクラスのインスタンス化
+    $todo = new Todo();
+    // DBからデータを全件取得
+    $tasks = $todo->all();
+
+    // echo '<pre>';
+    // var_dump($tasks);
+    // exit();
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +54,7 @@
                     <th></th>
                     <th></th>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td>create new website</td>
                     <td>2019/08/21</td>
                     <td>NOT YET</td>
@@ -66,10 +75,19 @@
                     <td>
                         <a class="text-danger" href="delete.php">DELETE</a>
                     </td>
-                </tr>
+                </tr> -->
               </thead>
-              <tbody></tbody>
-          </table>  
+              <tbody>
+              <?php foreach ($tasks as
+              $task):?>
+              <tr>
+                <th>
+                <?php echo $task['name']; ?>
+                </th>
+              </tr>
+              <?php endforeach; ?>
+            </tbody>
+          </table>
         </section>
     </main>
 </body>
