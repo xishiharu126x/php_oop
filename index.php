@@ -1,3 +1,7 @@
+<?php
+    require_once('Models/Todo.php');
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>

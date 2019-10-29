@@ -15,4 +15,12 @@ class Todo
         $stmt->execute([$name]);
         // return $this->db_manager->dbh->lastInsertId();
     }
+    // 一覧を呼び出すためのメソッド
+    public function all()
+    {
+      $stmt = $this->db_manager->dbh->prepare('SELECT * FROM'.$this->table);
+      $stmt->execute();
+      $tasks = $stmt->fetchAll();
+      return $tasks;
+    }
   }
