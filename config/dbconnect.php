@@ -17,7 +17,7 @@ class DbManager {
     ];
     $dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
     try {
-        $this->$dbh = new PDO($dsn, $user, $password, $options);
+        $this->dbh = new PDO($dsn, $user, $password, $options);
     } catch (\PDOException $e) {
         throw new \PDOException($e->getMessage(), (int)$e->getCode());
     }
