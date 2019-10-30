@@ -32,4 +32,9 @@ class Todo
 
         return $task;
     }
+    public function update($name,$id)
+    {
+        $stmt = $this->db_manager->dbh->prepare('UPDATE '.$this->table.' SET name =? WHERE id = ?');
+        $stmt->execute([$name,$id]);
+    }
   }
