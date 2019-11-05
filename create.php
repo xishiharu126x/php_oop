@@ -1,5 +1,7 @@
 <?php
 
+header("Content-type: application/json; charset=utf-8");
+
 require_once('Models/Todo.php');
 
 //入力されたデータを変数taskに保存
@@ -11,7 +13,8 @@ $latestId = $todo->create($task);
 // 最新のタスクを取得
 
 // 最新のタスクをjson形式にして通信元に返す
-  echo json_encode($latestId);
+$latestTask = $todo->get($latestId);
+echo json_encode($latestTask);
 
 // header('Location: index.php');
 
