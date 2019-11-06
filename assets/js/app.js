@@ -23,7 +23,7 @@ $(function(){
             console.log(data);
 
             $('tbody').prepend(
-                `<tr>` +
+                `<tr id="task-${data['id']}">` +
                   `<td>${data['name']}</td>` +
                   `<td>${data['due_date']}</td>` +
                   `<td>NOT YET</td>` +
@@ -35,6 +35,8 @@ $(function(){
                   `</td>` +
                 `</tr>`
         );
+        // 入力欄をクリアにする
+        $("#input-task").val("");
 
         }).fail((error) =>{
             console.log(error);
@@ -64,10 +66,8 @@ $(function(){
                 }
             }).done( (data) => {
                 console.log(data);
+                $("#task-"+ data).fadeOut();
 
-                $("a").click(function () {
-                    $("a").fadeOut("nomal");
-                  });
             }).fail( (error) => {
                 console.log(error);
 

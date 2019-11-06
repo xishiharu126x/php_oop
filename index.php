@@ -81,7 +81,7 @@
             <tbody>
             <?php foreach ($tasks as
             $task):?>
-            <tr>
+            <tr id="task-<?php echo h($task['id']); ?>">
               <td>
               <?php echo h($task['name']); ?>
               </td>
