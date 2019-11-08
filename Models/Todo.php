@@ -22,7 +22,7 @@ class Todo
     // 一覧を呼び出すためのメソッド
     public function all()
     {
-        $stmt = $this->db_manager->dbh->prepare('SELECT * FROM ' . $this->table);
+        $stmt = $this->db_manager->dbh->prepare('SELECT * FROM '. $this->table.' ORDER BY id DESC' );
         $stmt->execute();
         $tasks = $stmt->fetchAll();
         return $tasks;
@@ -47,5 +47,13 @@ class Todo
     {
          $stmt = $this->db_manager->dbh->prepare('DELETE FROM '.$this->table.' WHERE id = ?');
          $stmt->execute([$id]);
+    }
+
+    //タスクを完了させるためのメソッド
+    public function done($id)
+    {
+        $stmt = $this->db_manager->dbh->prepare('UPDATE '.$this->table.' SET done_flg = 1 WHERE id = ?');
+        // 実行
+        $stmt->execute([$id]);
     }
   }

@@ -54,6 +54,7 @@
                   <th>STATUS</th>
                   <th></th>
                   <th></th>
+                  <th></th>
               </tr>
               <!-- <tr>
                   <td>create new website</td>
@@ -88,12 +89,27 @@
               <td>
               <?php echo h($task['due_date']); ?>
               </td>
-              <td>NOT YET</td>
+
+              <?php if($task['done_flg'] == 0): ?>
+                <td id="done-<?php echo h($task['id']); ?>">NOT YET</td>
+              <?php else: ?>
+                <td>DONE</td>
+              <?php endif; ?>
+
+              <!-- <td><?php echo h($task['done_flg']); ?></td> -->
+
               <td>
                 <a class="text-success" href="edit.php?id=<?php echo h($task['id']); ?>">EDIT</a>
               </td>
               <td>
                 <a data-id="<?php echo h($task['id']); ?>" class="text-danger delete-button" href="delete.php?id=<?php echo h($task['id']); ?>">DELETE</a>
+              </td>
+              <td>
+
+              <?php if($task['done_flg'] == 0): ?>
+                <button data-id="<?php echo h($task['id']); ?>" class="btn btn-info done-button">完了</button>
+              <?php endif; ?>
+              <!-- <button class="btn btn-info done-button">完了</button> -->
               </td>
             </tr>
             <?php endforeach; ?>

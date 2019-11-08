@@ -26,12 +26,15 @@ $(function(){
                 `<tr id="task-${data['id']}">` +
                   `<td>${data['name']}</td>` +
                   `<td>${data['due_date']}</td>` +
-                  `<td>NOT YET</td>` +
-                  `<td>` +
+                  `<td id="done-${data['id']}">NOT YET</td>` +
+                    `<td>` +
                       `<a class="text-success" href="edit.php?id=${data['id']}">EDIT</a>` +
                   `</td>` +
                   `<td>` +
                       `<a data-id="${data['id']}" class="text-danger delete-button" href="delete.php?id=${data['id']}">DELETE</a>` +
+                  `</td>` +
+                  `<td>` +
+                      `<button data-id="${data['id']}" class="btn btn-info done-button">完了</button>` +
                   `</td>` +
                 `</tr>`
         );
@@ -71,6 +74,32 @@ $(function(){
             }).fail( (error) => {
                 console.log(error);
 
-            })
+            });
+        });
+            $(document).on('click', '.done-button', function(){
+                // alert('dooone');
+                // IDを取得
+                let doneId = $(this).data('id');
+                // アラートでIDを表示する
+                // alert(doneId);
+
+                 // ajax開始
+            $.ajax({
+                url:'done.php',
+                type:'GET',
+                dateType:'json',
+                data:{
+                 // 送信する値を書く
+                    id:doneId
+                }
+            }).done( (data) => {
+                console.log(data);
+                $(this).fadeOut();
+                $("#done-" + data).text("DONE");
+
+            }).fail( (error) => {
+                console.log(error);
+
+            });
         });
 })
